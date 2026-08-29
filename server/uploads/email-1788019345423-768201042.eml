@@ -1,0 +1,249 @@
+Delivered-To: vivekkushwaha.dev13@gmail.com
+Received: by 2002:a05:7108:9f8e:b0:581:1be3:a072 with SMTP id mz14csp555837gdb;
+        Thu, 27 Aug 2026 21:40:44 -0700 (PDT)
+X-Received: by 2002:a05:6a00:4187:b0:851:b03a:fcb with SMTP id d2e1a72fcca58-85629543442mr10310033b3a.14.1787892044395;
+        Thu, 27 Aug 2026 21:40:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787892044; cv=none;
+        d=google.com; s=arc-20260327;
+        b=WciHwSCzGA7pMnGh/HfW3Njd2iY/msNtaRmoKFL7fOIb/ycQYlsxsJ6PqDKpxyUey5
+         zvpEBVwKNvn4ZLnvk1cW1aRP6T6E+L24vLUaUh4izut+LdThkmWJpyvGej6FT81VtYtm
+         qW8e0EKM9tcpT4ABqQfPeLWsfzRMpdG/zyexEI1XRKvMIrrkwFLctTRnhFTWOsRdUvfL
+         cujInLxBp6ZE+DYHGmcAUuKGoFAXjjjGrzHmAiRyzQiNC7ODfgs1H8A5Db68u+iI06AT
+         TDCdGs2Oh9mcCYO0p6aFXL+olTlfQCmFkqWfekgZD5IJ80qSZT5MpGElqQkmz3HjQ6yz
+         j7gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=feedback-id:date:message-id:content-transfer-encoding:mime-version
+         :subject:to:reply-to:from:dkim-signature:dkim-signature;
+        bh=q3Dp+E21vRC/1w1oMslxJwDUDSs6wPfA0OoN/z8QjNw=;
+        fh=BK3v8kR+y6xdYh1UuOgRl7bhFV68Ec3/9r01IqJ7QE4=;
+        b=TLGzXeB6/saRSQukKEXHcfEx37bwNljVTQEKMF0kBD0qzq1mILE5wIb5LquhBcBKX1
+         IDPHSGgg1fFFGlK9YBspBsxwiMGM7WkcgNMTGvIgH7FivkHmajQqzf2EGpR01LTgiZ4I
+         dNCOtt8sXybbyXfc3cBQaICrnX1oL14FEK73ltgooxkGztOPjmYPnZH/avZHc8OBwUZN
+         lNwbUXxhMLGJft6k6u8a0GsumU0bZSGsbeTlkZMR+lQ3Zq6FwOm7FTF0aDcEvzNgx5ZR
+         ypKc0b5Cc/lgSngaovI0953sbVJuZOrM7E8OU7S1WUAITzO4cmzTwcJE96/35A6QfRo7
+         fsBQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.careers.microsoft.com header.s=hb5p2gcnoeprhespqk7227oprb2t3sis header.b="O/MDcfjy";
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=kYLUGRyX;
+       spf=pass (google.com: domain of 010101a046ab911c-05912e50-20fc-4e68-8e80-0d94baa6230a-000000@mail.email.careers.microsoft.com designates 54.240.27.117 as permitted sender) smtp.mailfrom=010101a046ab911c-05912e50-20fc-4e68-8e80-0d94baa6230a-000000@mail.email.careers.microsoft.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=microsoft.com
+Return-Path: <010101a046ab911c-05912e50-20fc-4e68-8e80-0d94baa6230a-000000@mail.email.careers.microsoft.com>
+Received: from a27-117.smtp-out.us-west-2.amazonses.com (a27-117.smtp-out.us-west-2.amazonses.com. [54.240.27.117])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-856a4350179si1299249b3a.94.2026.08.27.21.40.44
+        for <vivekkushwaha.dev13@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Aug 2026 21:40:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 010101a046ab911c-05912e50-20fc-4e68-8e80-0d94baa6230a-000000@mail.email.careers.microsoft.com designates 54.240.27.117 as permitted sender) client-ip=54.240.27.117;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.careers.microsoft.com header.s=hb5p2gcnoeprhespqk7227oprb2t3sis header.b="O/MDcfjy";
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=kYLUGRyX;
+       spf=pass (google.com: domain of 010101a046ab911c-05912e50-20fc-4e68-8e80-0d94baa6230a-000000@mail.email.careers.microsoft.com designates 54.240.27.117 as permitted sender) smtp.mailfrom=010101a046ab911c-05912e50-20fc-4e68-8e80-0d94baa6230a-000000@mail.email.careers.microsoft.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=microsoft.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hb5p2gcnoeprhespqk7227oprb2t3sis; d=email.careers.microsoft.com;
+	t=1787892044;
+	h=From:Reply-To:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date;
+	bh=QW7heA9mEHQZbGucQ/pLCOgXUyOqOo8Zjx/xn0M+Xes=;
+	b=O/MDcfjy1BdLtdTqC25NZhcZ0Tyzv+RAOWn3ND8fKx7yVzBYro5ssbasv1ryRdvP
+	219OegCT9vJLVvCOUeREL4KJHg9TVZGuV/b3X4V4CNmS/u96ilCO7WtqRSco/0atvP6
+	Gu2RD3bQsByssnhqYdYj0U/EGPjDROS1yJZHW3wN9ZP+5GRiEe9jk6dm+bWjMoJpVQO
+	MHb3FqxZjX9u7/7j276tD8Glk/c4hBisDkB9OcWisuDlk4kZVyI9Gdy7IdFc71vm8Rt
+	KQ17CWa67+E+fuMA3CTCWOc6gWFLOjOnzmHSV/72RCxlhWx/sgf1/747OqTJMJKlKg7
+	3S6cOjw94g==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1787892044;
+	h=From:Reply-To:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=QW7heA9mEHQZbGucQ/pLCOgXUyOqOo8Zjx/xn0M+Xes=;
+	b=kYLUGRyX2Q1eCxCdc8RchU5imFlrpoyNeWo/2m5+/3MxG6t/sMG9rLHKP6DuHKhT
+	8erOww4bxFjnq9XPHJDN+i4fDu1WE09Ao9tQo55LrcK5xzwE0jkcr2Ji5h+IyCY4T/3
+	6CnnvL+RlmcfttYYwAysrCIbSGgZk1FmWY7f+3U8=
+From: Microsoft Careers <donotreply@email.careers.microsoft.com>
+Reply-To: Microsoft Careers <donotreply@email.careers.microsoft.com>
+To: vivekkushwaha.dev13@gmail.com
+Subject: Thank you for your application!
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <010101a046ab911c-05912e50-20fc-4e68-8e80-0d94baa6230a-000000@us-west-2.amazonses.com>
+Date: Fri, 28 Aug 2026 04:40:44 +0000
+Feedback-ID: ::1.us-west-2.sfSzxGXUr5RBCHrkxUGBRJ/75G/8j5XWmRk5twQzHqM=:AmazonSES
+X-SES-Outgoing: 2026.08.28-54.240.27.117
+
+<head>
+    <!--[if mso]>
+    <style>
+      .segui { font-family:'Segoe UI', sans-serif !important; }
+    </style>
+    <![endif]-->
+  </head>
+<body style=3D"margin:0; padding:0; background-color:#ffffff;">
+  <center>
+
+    <!-- Outer wrapper -->
+    <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" =
+bgcolor=3D"#ffffff">
+      <tr>
+        <td align=3D"center">
+
+          <!-- Centered, fixed-width email body -->
+          <table width=3D"600" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"background-color:#ffffff; padding:20px; text-align:left;">
+            <tr>
+              <td>
+
+                <!-- Banner with Logo -->
+               <img src=3D"https://static.vscdn.net/images/careers/demo/mic=
+rosoft/1761588287::msft+email+banner" alt=3D"Microsoft Logo" height=3D"auto=
+" width=3D"600">
+
+                <!-- Hidden cursor span -->
+                <div>
+                  <span class=3D"ql-cursor">=EF=BB=BF</span>
+                </div>
+
+                <!-- Spacer -->
+                <div class=3D"ql-align-right"></div>
+
+                <!-- Message -->
+            =20
+                <span class=3D "segui" style=3D"font-family:'Segoe UI'; fon=
+t-size:16px; line-height:1.6; color:#000000;">
+              =20
+              <p>Hi Vivek,</p>
+
+                  <p>Thank you for taking the time to submit your applicati=
+on for Software Engineering INTERN (Job number: 200041085). We=E2=80=99re g=
+lad you=E2=80=99re interested in a career at Microsoft, and we=E2=80=99re h=
+ere to help you find your next role.</p>
+
+                  <p>You may not receive feedback from us on your applicati=
+on directly, but please know that it=E2=80=99s being evaluated, and you=E2=
+=80=99ll hear from us as soon as the review process is complete. If you=E2=
+=80=99re selected for an interview, you=E2=80=99ll be notified by the recru=
+iting team.</p>
+
+                  <p>Updates regarding your application status can be viewe=
+d through your <a
+        href=3D"https://microsoft.eightfold.ai/vsimp?d=3D.eJwVyj0OwyAMQOG7e=
+G6jGNfmZ-pNKkRQQIR0oKFDlbuHjk_v-0Ft6ysv4NDqmSzJzIZJDN0gVp83cNBzj6UcLX198tMS=
+O9Jz_b8pvCsM1-P-GS5sOZTRe_ItgbujZUSjRAsqFvXQrM8LgekhGQ.eS62jIarvbhOQIbcavZl=
+l5zknQk&n=3Dhttps%3A%2F%2Fapply.careers.microsoft.com%2Fcareers%2Fdashboard=
+" rel=3D"noopener noreferrer" target=3D"_blank">Action Center</a>. If you s=
+ee the job moved to an inactive state, that means the position is either no=
+ longer open, you withdrew from consideration, or you were not selected for=
+ the role.<p>
+=09=09=09=09=09<p><Strong>How=E2=80=99s your profile?</Strong><br>
+                  A key part of the review process is evaluating your <a
+        href=3D"https://microsoft.eightfold.ai/vsimp?d=3D.eJwVykEOgyAQQNG7z=
+Lo1DsMgsPImhiARgtgFFRfGu5cuf_67odRtSStYNNNIhtTImklpekEoLu1goaUWcj5rvFx0wxoa=
+0rz93-A_Bbpr4fh25_fkc-8juhrBvoViZKMFSkFykoZRPT-B9iEY.GE1SqiGagEjZ6sraMvRt92=
+EwEag&n=3Dhttps%3A%2F%2Fapply.careers.microsoft.com%2Fcareers%2Fprofile" re=
+l=3D"noopener noreferrer" target=3D"_blank">profile</a> in relation to the =
+job requirements, so please make sure your profile is accurate and extensiv=
+e =E2=80=93 it=E2=80=99s our first step in getting to know you! We encourag=
+e you to check back frequently and continue to look for opportunities that =
+match your interests, as new jobs are being posted regularly.</p>
+
+                <!-- Signoff -->
+                <span class=3D "segui" style=3D"font-family:Segoe UI; font-=
+size:16px; color:#000000;">
+                  Thank you,<br>
+                  Microsoft Recruiting
+                </span>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </center>
+
+ =20
+</body><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100=
+%"  style=3D"background-color:#FFFFFF; font-size:12px; font-weight:100; col=
+or:#909090; bgcolor:#FFFFFF">
+<tr><td><br><br></td></tr>
+<tr>
+<td align=3D"center" style=3D"background-color:#FFFFFF; font-size:12px; fon=
+t-weight:100; color:#909090; bgcolor:#FFFFFF">
+    <center>   <table width=3D"600" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0"       style=3D"background-color:#ffffff; text-align:center; margi=
+n-top:20px; padding:0; margin-bottom:0px;">      <tr>         <td style=3D"=
+padding:20px; margin-bottom:0px; padding-bottom:0px;">            <p style=
+=3D"color:black; font-weight:600; font-family:Arial, sans-serif; font-size:=
+12px; line-height:18px;"> Your privacy is important to us. The personal dat=
+a you provide will be processed by AI to enhance your experience. For more =
+information, please see the <a href=3D"https://microsoft.eightfold.ai/vsimp=
+?d=3D.eJwVykEOgyAQQNG7zLoaZJxxYOVNGoJECGIXKF00vXvp8ue_D5S6P9MGdjKLQoOsSAhZ8=
+AGhuHSAhZZayPmu8e2iG7fQJlz3_xv9q0B3LZxXd_5IPvc-o6sR7ECkRHhhLcSznkUb9f0Bgq4h=
+Iw.Iu_eQcjVlFGPOd3gSZyEcA7eS-s&n=3Dhttps%3A%2F%2Fgo.microsoft.com%2Ffwlink%=
+2F%3FLinkId%3D518021" rel=3D"noopener noreferrer" target=3D"_blank">Microso=
+ft Data Privacy Notice</a> and <a href=3D"https://microsoft.eightfold.ai/vs=
+imp?d=3D.eJwVykEOgyAQQNG7zLo1Q2dAYOVNGoJECKILFBeNd5cuf_77QanLN81ghRmRDCmUWp=
+LS9IJQXFrBQkst5HzWeLnohjk0QdPyf4PfC3TXwnZ059fkc-8tuhrBvj9SsGZWBpHlqDQj3Q-B2=
+iEU.v3A7Me7mncEpagnRKr_T7DTOjFI&n=3Dhttps%3A%2F%2Fcareers.microsoft.com%2Fv=
+2%2Fglobal%2Fen%2Ftransparency.html" rel=3D"noopener noreferrer" target=3D"=
+_blank">Transparency FAQ</a>.</p>            <p style=3D"color:black; font-=
+weight:normal; font-family:Arial, sans-serif; font-size:12px; margin-top:10=
+px;">Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, United St=
+ates        </p>            <table class=3D"mcnFollowBlock" border=3D"0" al=
+ign=3D"center" cellspacing=3D"0" cellpadding=3D"9" style=3D"margin-top:20px=
+;">               <tbody>                  <tr>                     <td ali=
+gn=3D"center" valign=3D"top">                        <table class=3D"mcnFol=
+lowContentContainer" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">     =
+                      <tbody>                              <tr>            =
+                     <td style=3D"padding:0px 9px 10px 9px;" align=3D"cente=
+r" valign=3D"middle">                        <a href=3D"https://microsoft.e=
+ightfold.ai/vsimp?d=3D.eJwVjDEOgCAQwP5yszEcBwpO_sQQIEIQHVAcjH8Xx6ZNH8hlXaKD=
+CfXISNPApJI0KOrAZxM3mKDG6lO6SrhNML3zFWlef9fbI0Prqt_P1tkt2tR4D6aENiTkXHMlBZI=
+khUKw9wNg_CDZ.QtWE2Mc2bo3l1gmpKw24dZL_45w&n=3Dhttps%3A%2F%2Fwww.linkedin.co=
+m%2Fcompany%2F1035%2F" target=3D"_blank" title=3D"" rel=3D"noopener">      =
+                    <img src=3D"https://static.vscdn.net/images/careers/dem=
+o/microsoft/1772114135::linkedin-icon.jpg" alt=3D"linkedin-icon" />        =
+                </a>                      </td>                            =
+     <td style=3D"padding:0px 9px 10px 9px;" align=3D"center" valign=3D"mid=
+dle">                        <a href=3D"https://microsoft.eightfold.ai/vsim=
+p?d=3D.eJwVykEOhCAMQNG7dG1MTcFSVt7EECRCEF2guJjM3YdZ_vz3gVL3NW1gJ2EkoRm10TQb=
+GiAUlw6w0FILOT81vi66cQttomX_v9FfBbpr4by780fyufcZXY1gFRmlUASZmQQNa_39AWJLIPo=
+.ofU4aSuPbqWPLz0vGJ5_XOXvvSg&n=3Dhttps%3A%2F%2Fx.com%2Fmicrosoft" target=3D=
+"_blank" title=3D"X" rel=3D"noopener">                          <img src=3D=
+"https://static.vscdn.net/images/careers/demo/microsoft/1772114177::x_logo.=
+jpg" alt=3D"x logo" width=3D"32" height=3D"33" />                        </=
+a>                      </td>                                 <td style=3D"=
+padding:0px 9px 10px 9px;" align=3D"center" valign=3D"middle">             =
+           <a href=3D"https://microsoft.eightfold.ai/vsimp?d=3D.eJwVyjEOwyA=
+MQNG7eK4iwAEbptykQoACIqQDDR2q3j10_PrvC63vzxLBSUsCLRqhWaNhfEBqvhzgYJSRar16_v=
+jsl5iGxG3_vyW8Gkw30vmeLhwl1Nln9j2DU4KI2VilEPVKEpl-N2IfIPM.Ry5-aPyFzyQ03DaY5=
+_LXQTZO5aU&n=3Dhttps%3A%2F%2Fwww.facebook.com%2FMicrosoftCareers%2F" target=
+=3D"_blank" rel=3D"noopener">                          <img src=3D"https://=
+static.vscdn.net/images/careers/demo/microsoft/1772114208::fb-icon.jpg" alt=
+=3D"fb-icon" />                        </a>                      </td>     =
+                            <td style=3D"padding:0px 9px 10px 9px;" align=
+=3D"center" valign=3D"middle">                        <a href=3D"https://mi=
+crosoft.eightfold.ai/vsimp?d=3D.eJwVjDEOgCAQwP5ysxrOE0Emf2IIEiCIDigOxr-LY9O=
+mD6TslrCCwkkwmmhkXHIaJTVgkw4bKCih2Biv7G_tdbfagjS733XmSFC7YvezdmYLJlbevc4eVC=
+sRGRIO9SkkUi-ofz-A5SEB.z-agtkeYvVPoqP-OXVnz-ou1Gfg&n=3Dhttps%3A%2F%2Fwww.in=
+stagram.com%2Fmicrosoftlife%2F" target=3D"_blank" title=3D"" rel=3D"noopene=
+r">                          <img src=3D"https://static.vscdn.net/images/ca=
+reers/demo/microsoft/1772114240::Instagram-icon.jpg" alt=3D"Instagram-icon"=
+ />                        </a>                      </td>                 =
+             </tr>                           </tbody>                      =
+  </table>                     </td>                  </tr>               <=
+/tbody>            </table>         </td>      </tr>   </table></center><br=
+>
+  This email was sent to vivekkushwaha.dev13@gmail.com by Microsoft, Redmon=
+d, WA, USA.&nbsp;
+  <a href=3D"https://microsoft.eightfold.ai/vsimp?d=3D.eJwVyjEOhCAQQNG7TG0M=
+OM4IVN7EECRCELdgxcJ4d7H8-e-GXLYlrmCkngRqZEGKkBV24LONOxiosfqUzhIuG2y_-ipx3r7=
+Xu1-G5qo__s25PbrU-gi2BDAkaZSaaGTGgYXQrJ4XYbEg7A.ipO1Tf1BtY6qPHCpp-QVW37LWdE=
+&n=3Dhttps%3A%2F%2Fmicrosoft.eightfold.ai%2Funsub%3Fmi%3DeyJlbWFpbCI6IjE5Nz=
+AzOTM2MDU4NTM2ODMiLCJncm91cF9pZCI6Im1pY3Jvc29mdC5jb20ifQ.HXKiyw.rRf1ZPJxX0E=
+m3QuravStuYkkHgw%26sender%3D.eJyrVkrNTczMUbJSSsnPyy8pSi3IqXQAC-klJxalphYV6-=
+VmJhflF-enlegl5-cq6SilF-WXFsRnpgD1oErVAgBWuRxp.HXKiyw.QZ589CT9pkgviaFm8b4hr=
+MHtywo%26domain%3Dmicrosoft.com" style=3D"color:#909090">Unsubscribe</a>
+</td>
+</tr>
+</table><img src=3D"https://microsoft.eightfold.ai/vsimp?d=3DeyJtc2dfaWQiOj=
+E5NzAzOTM2MDU4NTM2ODMsImVtYWlsIjoidml2ZWtrdXNod2FoYS5kZXYxM0BnbWFpbC5jb20if=
+Q.iC_WEjeoYgB81_hKkB2MxxbKBCk" style=3D"display: none;"/>

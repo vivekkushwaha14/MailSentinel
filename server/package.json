@@ -1,0 +1,29 @@
+{
+  "name": "mailsentinel-backend",
+  "version": "1.0.0",
+  "description": "Email Threat Detection and Forensic Intelligence Platform - Backend",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "cybersecurity",
+    "email",
+    "phishing",
+    "forensics",
+    "threat-detection"
+  ],
+  "author": "MailSentinel Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mailparser": "^3.7.1",
+    "mongoose": "^8.3.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}

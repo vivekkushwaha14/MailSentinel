@@ -1,0 +1,844 @@
+Delivered-To: patrickbatman458@gmail.com
+Received: by 2002:a59:c88e:0:b0:59d:92d1:47aa with SMTP id b14csp2766649vqt;
+        Mon, 25 May 2026 09:02:49 -0700 (PDT)
+X-Received: by 2002:a05:6a21:38d:b0:3a2:dabf:fef6 with SMTP id adf61e73a8af0-3b328f34581mr15740548637.35.1779724969634;
+        Mon, 25 May 2026 09:02:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779724969; cv=none;
+        d=google.com; s=arc-20240605;
+        b=e7J/lmQ46CEbICGRhgiQk4Jtsch9GSCs3stIcD5ouSce3mXFJEkYaRb6APyukq0gcD
+         5x8Le9xc11hO8SgzEuJFBPGKE8pOP2exfZ9x3xq7cx5Sl/O7sfe9FO2z+Bjb+VbVB9RL
+         1fvfwJ/Rxmh4IIy9zJ8BNtvdAfiFFJXhiwHFwTGp8gdR1oJsjOotcy6OpN3Po4o31F/f
+         /9MK4emaohRPpI0alXjCmWrfWgoGOz/X5aP9q5+I/2xr1ChlrA4UKny22otQqu3epPtU
+         RWzMxkZVhtIjt365s4ADnyMK+T1uT8dnFpJDY8nwzIBGMnvqPS3rRicMV+UB9tk1SHb/
+         hbmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=message-id:reply-to:to:from:subject:mime-version:date
+         :dkim-signature:dkim-signature;
+        bh=KnLxIWQHhB2sRtkNZgDN2+psJbOUOK4BLmdM7xPg3K0=;
+        fh=gmkFVsxao+D2mKCfQPG7WtT4VK/pO+s5X1byKSGhCoo=;
+        b=d2er9IbZdMvw3fSA2S7vPxYffgKoidK1yBcASog2x2isi/g4ohri2qmisyWpGrMLAv
+         yp4Ll7DALD/4mMBrKpd0GfBcWpnSMdYqZ1XGPeHa6umdUNQy6kVexdvexCl2tOBZrTO4
+         lDFQHvXERb8F9XarLSyDV/mpWMDli+nviRqTl/FH2cwRa2K7DaYHl0hdMLC8+nd3aCIX
+         QNDh16+oAgV6f92p6LfSeiKiUTVo42+h1tOUb57/I/MrYUvgLCFh+1cIRzrK8mQ4CMGT
+         jKJKuhlPGhbriSxkyVyEIj05kfYhpHdMfc+I5IrGCTgZbxHBlITbDH738Xi5uK660KWR
+         ED0A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cio8.devpost.com header.s=krs header.b=CURZDIi5;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=OsS5lmFR;
+       spf=pass (google.com: domain of postmaster@cio8.devpost.com designates 69.72.44.5 as permitted sender) smtp.mailfrom=postmaster@cio8.devpost.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=devpost.com
+Return-Path: <postmaster@cio8.devpost.com>
+Received: from v55.v5e5d4d68.usw1.send.mailgun.net (v55.v5e5d4d68.usw1.send.mailgun.net. [69.72.44.5])
+        by mx.google.com with UTF8SMTPS id 41be03b00d2f7-c85202c4837si15191139a12.94.2026.05.25.09.02.49
+        for <patrickbatman458@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 25 May 2026 09:02:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of postmaster@cio8.devpost.com designates 69.72.44.5 as permitted sender) client-ip=69.72.44.5;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cio8.devpost.com header.s=krs header.b=CURZDIi5;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=OsS5lmFR;
+       spf=pass (google.com: domain of postmaster@cio8.devpost.com designates 69.72.44.5 as permitted sender) smtp.mailfrom=postmaster@cio8.devpost.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=devpost.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=cio8.devpost.com; q=dns/txt; s=krs; t=1779724968; x=1779732168;
+ h=Message-Id: Reply-To: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: X-Feedback-Id: Sender;
+ bh=KnLxIWQHhB2sRtkNZgDN2+psJbOUOK4BLmdM7xPg3K0=;
+ b=CURZDIi5tEPQiNbMjT0j8uoFq0LYh2i37ZPZW6bJgjfLF8e6fN5M0pYCNNHPyb/2Js/Vtr/IWsRcUU4xArAhSQOdLelJuI4duSXvl2ynusiJQYzVgk0PWcMmhzDnX4n2TRJ6dgSrS7kezWpG1ifADRxxMW16hWxCUOe2F3O+LNY=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg; t=1779724968; x=1779732168;
+ h=Message-Id: Reply-To: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: X-Feedback-Id: Sender;
+ bh=KnLxIWQHhB2sRtkNZgDN2+psJbOUOK4BLmdM7xPg3K0=;
+ b=OsS5lmFRsmwXUWBjqn4wLkFfNkPmEO+vFa6cqD2YcHDbD8WTqcumnkBRUx9W7Xpd86shEpYw9xNjO/FT27ev9rU8G08qfac4usBX8VEdcpkbyq+oWu+LyS9WOlnZ8cLr7bG9OyL7Bz4bYe9zFrGk16hjsGZiNDz/jkWAwSs3SlI=
+X-Mailgun-Sid: WyJhNDg1OCIsInBhdHJpY2tiYXRtYW40NThAZ21haWwuY29tIiwiYTNiMzk5Il0=
+X-Feedback-Id: postmaster@cio8.devpost.com::5e1538d704ac33c28233d67c:mailgun
+Received: by af595becbf09865224f178dec6708fd63c964055107bfd0c6412627d648ebbc6 with HTTP
+ id 6a1472a7ff56f7d09ae38624; Mon, 25 May 2026 16:02:47 GMT
+X-Mailgun-Sending-Ip: 69.72.44.5
+Date: Mon, 25 May 2026 16:02:47 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="43fde31bc5da7daf1245bdc35fa40f8edf49ab63c8d84550fcdbb77fe8f4"
+Subject: =?UTF-8?q?=F0=9F=93=85_Two_events_this_week!_-_Google_Cloud_Rapid_Agent_H?=
+ =?UTF-8?q?ackathon?=
+From: Devpost <support@devpost.com>
+To: patrickbatman458@gmail.com
+X-Mailgun-Dkim: true
+X-Mailgun-Native-Send: true
+X-Mailgun-Track-Clicks: false
+X-Mailgun-Track-Opens: false
+Reply-To: "sara@devpost.com" <sara@devpost.com>
+X-Mailer: Customer.io (dgQIAQCOhfoEjoX6BAGeX9_bmNRbNxiQk1mTir8=;
+ +https://whatis.customeriomail.com)
+X-Report-Abuse-To: badactor@customer.io
+X-Mailgun-Variables: {"email_id": "dgQIAQCOhfoEjoX6BAGeX9_bmNRbNxiQk1mTir8="}
+Message-Id: <20260525160247.677158636534d6f3@cio8.devpost.com>
+
+--43fde31bc5da7daf1245bdc35fa40f8edf49ab63c8d84550fcdbb77fe8f4
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+( http://devpost.com )
+
+Be sure to join us for these upcoming events this week!
+-------------------------------------------------------
+
+Secure AI Agent Deployment with GitLab and Gemini
+
+A quick demo showing secure and fast AI Agent deployment using the latest a=
+gent orchestration and services from GitLab and Google Cloud.
+
+=F0=9F=93=85May 26 =E2=80=94 1:00 PM EDT / 10:00 AM PDT =E2=80=94 Discord B=
+uild Session
+
+Join on Discord =E2=86=92 ( https://discord.com/channels/861966823054639134=
+ )
+
+Power Your AI Agent with Data =E2=80=94 Q&A with Fivetran & Google Cloud
+
+A live Q&A session with Fivetran and Google Cloud on powering your AI agent=
+ with reliable, connected data pipelines.
+
+=F0=9F=93=85May 27 =E2=80=94 12:00 PM EDT / 9:00 AM PDT =E2=80=94 Webinar
+
+Register for Webinar =E2=86=92 ( https://go.fivetran.com/webinars/hackathon=
+-qa-power-your-ai-agent-with-data-fivetran-and-google-cloud?utm_source=3Dde=
+vpost&utm_medium=3Dupdate&utm_campaign=3D25052026 )
+
+=C2=A0
+
+Questions?
+
+If you have any questions about the hackathon, please post on the discussio=
+n forum ( https://rapid-agent.devpost.com/forum_topics ).
+
+You received this email because you signed up for Google Cloud Rapid Agent =
+Hackathon. If you're no longer participating, you can unregister here ( htt=
+ps://rapid-agent.devpost.com/ ).
+
+=C2=A9 2026 Devpost, Inc. All rights reserved. Unsubscribe from these notif=
+ications ( https://devpost.com/notification_subscriptions/osi4W12-BJGj3xhLC=
+SSjGQ )
+--43fde31bc5da7daf1245bdc35fa40f8edf49ab63c8d84550fcdbb77fe8f4
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+"/>
+
+    <!-- Set iPhone viewport -->
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0"/>
+
+    <!--
+    From Email on Acid:
+    http://www.emailonacid.com/blog/details/C13/ensure_that_your_entire_ema=
+il_is_rendered_by_default_in_the_iphone_ipad
+    Two ways to ensure that your entire email is rendered by default in the=
+ iPhone and iPad:
+    1. Make sure that you have a minimum of 1,019 characters before your cl=
+osing head tag
+    including spaces and carriage returns.
+    2. Another option is to remove your tags entirely.
+    Be careful with this solution, some email service providers might place=
+ head tags within your email dynamically.
+
+    Cupcake ipsum dolor sit. Amet sweet roll marzipan. Icing muffin croissa=
+nt chocolate cake topping.
+    Lemon drops powder macaroon caramels chupa chups gingerbread I love.
+    Candy canes croissant muffin I love faworki cake chocolate cake. Puddin=
+g candy canes I love.
+    Sesame snaps I love ice cream brownie sweet sugar plum. Wafer caramels =
+bear claw ice cream jujubes.
+    I love wypas chocolate cake tiramisu. Gingerbread wafer I love marzipan=
+ jelly-o.
+    Cotton candy I love apple pie brownie oat cake powder halvah bear claw =
+tart.
+    Bear claw sesame snaps chocolate I love icing macaroon pudding oat cake=
+ gingerbread.
+    I love donut applicake sugar plum I love cheesecake donut I love.
+    -->
+
+    <style type=3D"text/css">
+      @media only screen and (max-device-width: 480px) {
+        .w600 { width:300px !important; }
+        td img { max-width: 300px !important; }
+        #headerImage { max-width: 300px !important; }
+      }
+
+      /* Client-specific Styles */
+      #outlook a { padding: 0; } /* Force Outlook to provide a "view in bro=
+wser" button. */
+      body { width: 100% !important; } .ReadMsgBody { width: 100%; } .Exter=
+nalClass { width: 100%; } /* Force Hotmail to display emails at full width =
+*/
+      body { -webkit-text-size-adjust: none; } /* Prevent Webkit platforms =
+from changing default text sizes. */
+
+      /* Reset Styles */
+      body { margin: 0; padding: 0; }
+      img { border: 0; height: auto; line-height: 100%; outline: none; text=
+-decoration: none; }
+      table td { border-collapse: collapse; }
+      table td img { max-width: 560px; }
+      #backgroundTable { height: 100% !important; margin: 0; padding: 0; wi=
+dth: 100% !important; }
+
+      /* Template Styles */
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: COMMON PAGE ELEMENTS /\/\/\=
+/\/\/\/\/\/\/\ */
+
+      /**
+      * @tab Page
+      * @section background color
+      * @tip Set the background color for your email. You may want to choos=
+e one that matches your company's branding.
+      * @theme page
+      */
+      body, #backgroundTable {
+        background-color: #ffffff;
+        color: #575553;
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 150%;
+        text-align: left;
+      }
+
+      /**
+      * @tab Page
+      * @section email border
+      * @tip Set the border for your email.
+      */
+      #templateContainer {
+        border:  none;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 1
+      * @tip Set the styling for all first-level headings in your emails. T=
+hese should be the largest of your headings.
+      * @style heading 1
+      */
+      h1, .h1 {
+        color: #003e54;
+        display: block;
+        font-family: sans-serif;
+        font-size: 26px;
+        font-weight: bold;
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 12px;
+        margin-left: 0;
+        text-align: left;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 2
+      * @tip Set the styling for all second-level headings in your emails.
+      * @style heading 2
+      */
+      h2, .h2 {
+        color: #003e54;
+        display: block;
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        text-align: left;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 3
+      * @tip Set the styling for all third-level headings in your emails.
+      * @style heading 3
+      */
+      h3, .h3 {
+        color: #003e54;
+        display: block;
+        font-family: sans-serif;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        text-align: left;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 4
+      * @tip Set the styling for all fourth-level headings in your emails.
+      * @style heading 4
+      */
+      h4, .h4 {
+        color: #003e54;
+        display: block;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        text-align: left;
+      }
+      /**
+      * @tab Page
+      * @section heading 4
+      * @tip Set the styling for all fourth-level headings in your emails.
+      * @style heading 4
+      */
+      h5, .h5 {
+        color: #003e54;
+        display: block;
+        font-family: sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        text-align: left;
+      }
+
+      /**
+      * @tab Page
+      * @section heading 4
+      * @tip Set the styling for all sixth-level headings in your emails. T=
+hese should be the smallest of your headings.
+      * @style heading 4
+      */
+      h6, .h6 {
+        color: #003e54;
+        display: block;
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: 0;
+        text-align: left;
+      }
+
+      ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: HEADER /\/\/\/\/\/\/\/\/\/\=
+ */
+
+      /**
+      * @tab Header
+      * @section header style
+      * @tip Set the background color and border for your email's header ar=
+ea.
+      * @theme header
+      */
+      #templateHeader {
+        background-color: #ffffff;
+        border-bottom: 0;
+      }
+
+      /**
+      * @tab Header
+      * @section header text
+      * @tip Set the styling for your email's header text. Choose a size an=
+d color that is easy to read.
+      */
+      .headerContent {
+        color: #202020;
+        font-family: sans-serif;
+        font-size: 34px;
+        font-weight: bold;
+        line-height: 100%;
+        padding: 18px 0 20px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      /**
+      * @tab Header
+      * @section header link
+      * @tip Set the styling for your email's header links. Choose a color =
+that helps them stand out from your text.
+      */
+      .headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Overr=
+ide */ .headerContent a .yshortcuts /* Yahoo! Mail Override */ {
+        color: #2d9eb2;
+        display: block;
+        font-weight: normal;
+        margin-right: 20px;
+        text-decoration: underline;
+      }
+
+      #headerImage {
+        height: auto;
+        max-width: 600px;
+      }
+
+      #templateHeader.withChallengeLogo .headerContent {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      #challengeLogo {
+        background: white;
+        padding: 10px;
+      }
+
+      #challengeLogo img {
+        max-width: 600px;
+        max-height: 100px;
+      }
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: MAIN BODY /\/\/\/\/\/\/\/\/=
+\/\ */
+
+      /**
+      * @tab Body
+      * @section body style
+      * @tip Set the background color for your email's body area.
+      */
+      #templateBody {
+        background-color: #FFFFFF;
+      }
+
+      /**
+      * @tab Body
+      * @section body text
+      * @tip Set the styling for your email's main content text. Choose a s=
+ize and color that is easy to read.
+      * @theme main
+      */
+
+      td.bodyContent {
+        padding: 20px 0;
+      }
+
+      .bodyContent div {
+        color: #575553;
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 150%;
+        text-align: left;
+      }
+
+      /**
+      * @tab Body
+      * @section body link
+      * @tip Set the styling for your email's main content links. Choose a =
+color that helps them stand out from your text.
+      */
+      .bodyContent div a:link, .bodyContent div a:visited, /* Yahoo! Mail O=
+verride */ .bodyContent div a .yshortcuts /* Yahoo! Mail Override */ {
+        color: #2d9eb2 !important;
+        font-weight: normal;
+        text-decoration: none;
+      }
+
+      .bodyContent div a b,
+      .bodyContent div a strong {
+        color: #2d9eb2 !important;
+      }
+
+      /**
+      * @tab Body
+      * @section body strong text
+      * @tip Set the styling for your email's main content strong text. Cho=
+ose a color that helps them stand out from your text.
+      * @theme strong body text
+      */
+      .bodyContent div strong,
+      .bodyContent div b {
+        color: #575553;
+      }
+
+      /**
+      * @tab Body
+      * @section body small text
+      * @tip Set the styling for your email's main content small text.
+      * @theme small body text
+      */
+      .bodyContent.small div {
+        font-size: 11px;
+      }
+
+      .bodyContent div p.disclaimer {
+        color: #999794;
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      .bodyContent img {
+        display: inline;
+        height: auto;
+      }
+
+      /**
+      * @tab Body
+      * @section body separator style
+      * @tip Set the style for body separators.
+      */
+      .bodySeparator {
+        background-color: #ffffff;
+        color: #003e54;
+        display: block;
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 100%;
+        margin: 0;
+        text-align: left;
+      }
+
+      .bodySeparator td {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: FOOTER /\/\/\/\/\/\/\/\/\/\=
+ */
+
+      /**
+      * @tab Footer
+      * @section footer style
+      * @tip Set the background color and top border for your email's foote=
+r area.
+      * @theme footer
+      */
+      #templateFooter {
+        background-color: #ffffff;
+        border-top: 0;
+      }
+
+      td.footerContent {
+        border-top: 2px solid #e6e6e6;
+        padding: 20px 0;
+      }
+
+      .footerContent td {
+        padding: 0;
+
+      }
+
+      /**
+      * @tab Footer
+      * @section footer text
+      * @tip Set the styling for your email's footer text. Choose a size an=
+d color that is easy to read.
+      * @theme footer
+      */
+      .footerContent,
+      .footerContent td {
+        color: #999794;
+        font-family: sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: left;
+      }
+
+      /**
+      * @tab Footer
+      * @section footer link
+      * @tip Set the styling for your email's footer links. Choose a color =
+that helps them stand out from your text.
+      */
+      .footerContent a:link, .footerContent a:visited, /* Yahoo! Mail Overr=
+ide */ .footerContent a .yshortcuts /* Yahoo! Mail Override */ {
+        color: #999794;
+        font-weight: normal;
+        text-decoration: underline;
+      }
+
+      .footerContent img {
+        display: inline;
+      }
+
+      /**
+      * @tab Footer
+      * @section utility bar style
+      * @tip Set the background color and border for your email's footer ut=
+ility bar.
+      * @theme footer
+      */
+      #utility {
+        background-color: #FFFFFF;
+        border: 0;
+      }
+
+      /**
+      * @tab Footer
+      * @section utility bar style
+      * @tip Set the background color and border for your email's footer ut=
+ility bar.
+      */
+      #utility div {
+        text-align: center;
+      }
+
+      /* /\/\/\/\/\/\/\/\/\/\ STANDARD STYLING: CONVERSATION HISTORY /\/\/\=
+/\/\/\/\/\/\/\ */
+
+      .message {
+        font-size: 12px;
+        text-align:  left;
+      }
+
+      .message .info {
+        color: #999794;
+        font-style: italic;
+        text-align: left;
+      }
+
+      .message .info.right {
+        text-align: right;
+      }
+
+      .message a:link, .message a:visited, /* Yahoo! Mail Override */ .mess=
+age a .yshortcuts /* Yahoo! Mail Override */ {
+        color: #2d9eb2;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .message .top {
+        line-height:  100%;
+        vertical-align:  top;
+        padding-bottom:  8px;
+      }
+
+      .messageSeparator td {
+        background-color: #ffffff;
+      }
+
+      /* -------------------------------------------
+          PHONE
+      -------------------------------------------- */
+      @media only screen and (max-width: 600px) {
+
+        #backgroundTable {
+          padding: 0 10px;
+        }
+
+      }
+    </style>
+  </head>
+  <body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=3D"=
+0" offset=3D"0" style=3D"width: 100% !important; -webkit-text-size-adjust: =
+none; background-color: #ffffff; color: #575553; font-family: sans-serif; f=
+ont-size: 14px; line-height: 150%; text-align: left; margin: 0; padding: 0;=
+" bgcolor=3D"#ffffff">
+    <center>
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100=
+%" width=3D"100%" id=3D"backgroundTable" style=3D"height: 100% !important; =
+width: 100% !important; background-color: #ffffff; color: #575553; font-fam=
+ily: sans-serif; font-size: 14px; line-height: 150%; text-align: left; marg=
+in: 0; padding: 0;" bgcolor=3D"#ffffff">
+        <tbody><tr>
+          <td align=3D"center" valign=3D"top" style=3D"border-collapse: col=
+lapse;">
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" id=3D"templateContainer" class=3D"w600" style=3D"border: none;">
+              <tbody><tr>
+                <td valign=3D"top" style=3D"border-collapse: collapse;">
+
+                  <!-- // Begin Template Header \\ -->
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"600" id=3D"templateHeader" class=3D"w600" style=3D"background-color=
+: #ffffff; border-bottom-width: 0;" bgcolor=3D"#ffffff">
+                    <tbody><tr>
+                      <td class=3D"headerContent" style=3D"border-collapse:=
+ collapse; color: #202020; font-family: sans-serif; font-size: 34px; font-w=
+eight: bold; line-height: 100%; text-align: left; vertical-align: top; padd=
+ing: 18px 0 20px;" align=3D"left" valign=3D"top">
+                        <a href=3D"https://e.customeriomail.com/e/c/eyJlbWF=
+pbF9pZCI6ImRnUUlBUUNPaGZvRWpvWDZCQUdlWDlfYm1OUmJOeGlRazFtVGlyOD0iLCJocmVmIj=
+oiaHR0cDovL2RldnBvc3QuY29tIiwiaW50ZXJuYWwiOiIwOGRhMDJhZTNmOGU4NWZhMDQiLCJsa=
+W5rX2lkIjo2NTUxNTg3fQ/3a9b02354213f637d343eed7af4c8d0afa31b1266a015780e68b8=
+53ad5d3eb73" target=3D"_blank" style=3D"color: #2d9eb2; display: block; fon=
+t-weight: normal; margin-right: 20px; text-decoration: underline; border: n=
+one;"><img src=3D"https://challengepost-assets.s3.amazonaws.com/emails/devp=
+ost-email-logo.png" height=3D"30" style=3D"height: 30px; line-height: 100%;=
+ outline: none; text-decoration: none; max-width: 560px; margin: 0; padding=
+: 0; border: 0 none;"/></a>
+                      </td>
+                    </tr>
+                  </tbody></table>
+                  <!-- // End Template Header \\ -->
+
+                </td>
+              </tr>
+              <tr>
+                <td align=3D"center" valign=3D"top" style=3D"border-collaps=
+e: collapse;">
+
+                  <!-- // Begin Template Body \\ -->
+                  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"600" id=3D"templateBody" class=3D"w600" style=3D"background-color: =
+#FFFFFF;" bgcolor=3D"#FFFFFF">
+                    <tbody><tr>
+                      <td valign=3D"top" style=3D"border-collapse: collapse=
+;">
+
+                        <!-- // Begin Module: Standard Content \\ -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%">
+                          <tbody><tr>
+                            <td valign=3D"top" class=3D"bodyContent" style=
+=3D"border-collapse: collapse; padding: 20px 0;">
+                              <div style=3D"color: #575553; font-family: sa=
+ns-serif; font-size: 14px; line-height: 150%; text-align: left;" align=3D"l=
+eft">
+                               =20
+
+<!--<h1><a target=3D"_blank" href=3D"https://rapid-agent.devpost.com/update=
+s/44179-two-events-this-week" data-cio-tag-base64=3D"e3tldmVudC51cGRhdGVfdX=
+JsfX0=3D">=F0=9F=93=85 Two events this week!</a></h1>-->
+
+<h5 style=3D"color: #003e54; display: block; font-family: sans-serif; font-=
+size: 18px; font-weight: bold; line-height: 100%; text-align: left; margin:=
+ 0 0 10px;" align=3D"left">Be sure to join us for these upcoming events thi=
+s week!</h5>
+<table class=3D"responsive">
+<tbody>
+<tr>
+<td style=3D"border-collapse: collapse;">
+<p><strong style=3D"color: #575553;">Secure AI Agent Deployment with GitLab=
+ and Gemini</strong></p>
+<p>A quick demo showing secure and fast AI Agent deployment using the lates=
+t agent orchestration and services from GitLab and Google Cloud.</p>
+<p>=F0=9F=93=85May 26 =E2=80=94 1:00 PM EDT / 10:00 AM PDT =E2=80=94 Discor=
+d Build Session</p>
+<p><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnUUlBUUNP=
+aGZvRWpvWDZCQUdlWDlfYm1OUmJOeGlRazFtVGlyOD0iLCJocmVmIjoiaHR0cHM6Ly9kaXNjb3J=
+kLmNvbS9jaGFubmVscy84NjE5NjY4MjMwNTQ2MzkxMzQiLCJpbnRlcm5hbCI6IjA4ZGEwMmFlM2=
+Y4ZTg1ZmEwNCJ9/b0a3691c7f269f727d2e7d6ab3fdf1a6f91b7e01affe021443994db51a4c=
+b271" target=3D"_blank" rel=3D"noopener" style=3D"color: #2d9eb2 !important=
+; font-weight: normal; text-decoration: none;">Join on Discord =E2=86=92</a=
+></p>
+</td>
+</tr>
+<tr>
+<td style=3D"border-collapse: collapse;">
+<p><strong style=3D"color: #575553;">Power Your AI Agent with Data =E2=80=
+=94 Q&amp;A with Fivetran &amp; Google Cloud</strong></p>
+<p>A live Q&amp;A session with Fivetran and Google Cloud on powering your A=
+I agent with reliable, connected data pipelines.</p>
+<p>=F0=9F=93=85May 27 =E2=80=94 12:00 PM EDT / 9:00 AM PDT =E2=80=94 Webina=
+r</p>
+<p><a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnUUlBUUNP=
+aGZvRWpvWDZCQUdlWDlfYm1OUmJOeGlRazFtVGlyOD0iLCJocmVmIjoiaHR0cHM6Ly9nby5maXZ=
+ldHJhbi5jb20vd2ViaW5hcnMvaGFja2F0aG9uLXFhLXBvd2VyLXlvdXItYWktYWdlbnQtd2l0aC=
+1kYXRhLWZpdmV0cmFuLWFuZC1nb29nbGUtY2xvdWQ_dXRtX3NvdXJjZT1kZXZwb3N0XHUwMDI2d=
+XRtX21lZGl1bT11cGRhdGVcdTAwMjZ1dG1fY2FtcGFpZ249MjUwNTIwMjYiLCJpbnRlcm5hbCI6=
+IjA4ZGEwMmFlM2Y4ZTg1ZmEwNCJ9/66fc3ead76e8d76754f3c6c190e7f13d225ad1d52aa625=
+799db13c6ad8263f61" target=3D"_blank" rel=3D"noopener" style=3D"color: #2d9=
+eb2 !important; font-weight: normal; text-decoration: none;">Register for W=
+ebinar =E2=86=92</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>=C2=A0</p>
+<p><strong style=3D"color: #575553;">Questions?</strong></p>
+<p>If you have any questions about the hackathon, please post on the <a hre=
+f=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnUUlBUUNPaGZvRWpvW=
+DZCQUdlWDlfYm1OUmJOeGlRazFtVGlyOD0iLCJocmVmIjoiaHR0cHM6Ly9yYXBpZC1hZ2VudC5k=
+ZXZwb3N0LmNvbS9mb3J1bV90b3BpY3MiLCJpbnRlcm5hbCI6IjA4ZGEwMmFlM2Y4ZTg1ZmEwNCJ=
+9/de7bef2299f860d70cd75f3881e88bceffe9b9a08dce0f20b2d8b8c080ca0663" style=
+=3D"color: #2d9eb2 !important; font-weight: normal; text-decoration: none;"=
+>discussion forum</a>.</p>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <!-- // Call To Action \\ -->
+                         =20
+                          <!-- // End Call To Action \\ -->
+
+                        </tbody></table>
+                        <!-- // End Module: Standard Content \\ -->
+
+                      </td>
+                    </tr>
+                  </tbody></table>
+                  <!-- // End Template Body \\ -->
+                </td>
+              </tr>
+            </tbody></table>
+
+            <!-- // Begin Template Footer \\ -->
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" id=3D"templateFooter" class=3D"w600" style=3D"background-color: #f=
+fffff; border-top-width: 0;" bgcolor=3D"#ffffff">
+              <tbody><tr>
+                <td valign=3D"top" class=3D"footerContent" style=3D"border-=
+collapse: collapse; border-top-width: 2px; border-top-color: #e6e6e6; borde=
+r-top-style: solid; color: #999794; font-family: sans-serif; font-size: 12p=
+x; line-height: 18px; text-align: left; padding: 20px 0;" align=3D"left">
+
+                  <!-- // Begin Module: Transactional Footer \\ -->
+                  <table border=3D"0" cellpadding=3D"10" cellspacing=3D"0" =
+width=3D"100%">
+                    <tbody><tr>
+                      <td valign=3D"top" style=3D"border-collapse: collapse=
+; color: #999794; font-family: sans-serif; font-size: 12px; line-height: 18=
+px; text-align: left; padding: 0;" align=3D"left">
+
+                        <p>You received this email because you signed up fo=
+r Google Cloud Rapid Agent Hackathon. If you're no longer participating, yo=
+u can <a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnUUlBU=
+UNPaGZvRWpvWDZCQUdlWDlfYm1OUmJOeGlRazFtVGlyOD0iLCJocmVmIjoiaHR0cHM6Ly9yYXBp=
+ZC1hZ2VudC5kZXZwb3N0LmNvbS8iLCJpbnRlcm5hbCI6IjA4ZGEwMmFlM2Y4ZTg1ZmEwNCIsImx=
+pbmtfaWQiOjI5NjE1NH0/94681f956c089f243506990cc47e52299ba0aaa2e8ec3dff7be055=
+e336e7c950" style=3D"color: #999794; font-weight: normal; text-decoration: =
+underline;">unregister here</a>.</p>
+
+  		                            <p>=C2=A9 2026 Devpost, Inc. All rights res=
+erved. <a href=3D"https://e.customeriomail.com/e/c/eyJlbWFpbF9pZCI6ImRnUUlB=
+UUNPaGZvRWpvWDZCQUdlWDlfYm1OUmJOeGlRazFtVGlyOD0iLCJocmVmIjoiaHR0cHM6Ly9kZXZ=
+wb3N0LmNvbS9ub3RpZmljYXRpb25fc3Vic2NyaXB0aW9ucy9vc2k0VzEyLUJKR2ozeGhMQ1NTak=
+dRIiwiaW50ZXJuYWwiOiIwOGRhMDJhZTNmOGU4NWZhMDQiLCJsaW5rX2lkIjozNTIwNTk2NX0/b=
+09d22661163343134ea96edbca15811319c32935c4f94b628d46237a420aa39" style=3D"c=
+olor: #999794; font-weight: normal; text-decoration: underline;">Unsubscrib=
+e from these notifications</a></p>
+	                        	</td>
+	                       </tr>
+                     =20
+                   =20
+                  </tbody></table>
+                  <!-- // End Module: Transactional Footer \\ -->
+
+                </td>
+              </tr>
+            </tbody></table>
+            <!-- // End Template Footer \\ -->
+
+          </td>
+        </tr>
+      </tbody></table>
+    </center>
+ =20
+
+<img src=3D"https://e.customeriomail.com/e/o/eyJlbWFpbF9pZCI6ImRnUUlBUUNPaG=
+ZvRWpvWDZCQUdlWDlfYm1OUmJOeGlRazFtVGlyOD0ifQ=3D=3D" style=3D"height: 1px !i=
+mportant; max-height: 1px !important; max-width: 1px !important; width: 1px=
+ !important; display: none !important;" alt=3D""/></body></html>
+--43fde31bc5da7daf1245bdc35fa40f8edf49ab63c8d84550fcdbb77fe8f4--

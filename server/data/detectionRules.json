@@ -1,0 +1,90 @@
+[
+  {
+    "id": "SPF_FAIL",
+    "category": "Authentication",
+    "scoreImpact": 7,
+    "severity": "medium",
+    "enabled": true,
+    "description": "SPF authentication failed."
+  },
+  {
+    "id": "DKIM_FAIL",
+    "category": "Authentication",
+    "scoreImpact": 7,
+    "severity": "medium",
+    "enabled": true,
+    "description": "DKIM authentication failed."
+  },
+  {
+    "id": "DMARC_FAIL",
+    "category": "Authentication",
+    "scoreImpact": 6,
+    "severity": "high",
+    "enabled": true,
+    "description": "DMARC authentication failed."
+  },
+  {
+    "id": "NAME_SPOOF",
+    "category": "SenderIdentity",
+    "scoreImpact": 5,
+    "severity": "medium",
+    "enabled": true,
+    "description": "Display name uses trusted/security wording that does not match sender identity."
+  },
+  {
+    "id": "LOOKALIKE_DOMAIN",
+    "category": "SenderIdentity",
+    "scoreImpact": 10,
+    "severity": "high",
+    "enabled": true,
+    "description": "Sender or URL domain resembles a known brand."
+  },
+  {
+    "id": "REPLYTO_MISMATCH",
+    "category": "SenderIdentity",
+    "scoreImpact": 5,
+    "severity": "medium",
+    "enabled": true,
+    "description": "Reply-To domain differs from sender domain."
+  },
+  {
+    "id": "RETURNPATH_MISMATCH",
+    "category": "SenderIdentity",
+    "scoreImpact": 4,
+    "severity": "medium",
+    "enabled": true,
+    "description": "Return-Path domain differs from sender domain."
+  },
+  {
+    "id": "SUSPICIOUS_URLS",
+    "category": "URL",
+    "scoreImpact": 20,
+    "severity": "high",
+    "enabled": true,
+    "description": "Suspicious URL indicators were detected."
+  },
+  {
+    "id": "KEYWORD_PATTERNS",
+    "category": "Content",
+    "scoreImpact": 15,
+    "severity": "medium",
+    "enabled": true,
+    "description": "High-risk social-engineering language was detected."
+  },
+  {
+    "id": "DANGEROUS_ATTACHMENTS",
+    "category": "Attachment",
+    "scoreImpact": 10,
+    "severity": "high",
+    "enabled": true,
+    "description": "Potentially dangerous attachments were found."
+  },
+  {
+    "id": "THREAT_INTEL_MATCH",
+    "category": "ThreatIntel",
+    "scoreImpact": 15,
+    "severity": "high",
+    "enabled": true,
+    "description": "Local reputation checks flagged one or more indicators."
+  }
+]

@@ -1,0 +1,401 @@
+Delivered-To: patrickbatman458@gmail.com
+Received: by 2002:a59:9ec2:0:b0:5ad:7167:cdfa with SMTP id t2csp1890370vqx;
+        Fri, 24 Jul 2026 01:01:26 -0700 (PDT)
+X-Received: by 2002:a05:6214:450f:b0:8fd:6df3:b376 with SMTP id 6a1803df08f44-907ca5be990mr71940446d6.58.1784880086118;
+        Fri, 24 Jul 2026 01:01:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784880086; cv=none;
+        d=google.com; s=arc-20260327;
+        b=M2xpwS3bXMeKs1ZxvsEroAzuy414YVEwLAqkJdJzvPZz8H7ny6vOSTI4tA/2j7Pdta
+         KPMLK8STYdtXpoQ2kxnC3leK65CTsI2x9ksofYLAKQRmqouSBGlrTZOiGwx3jS1fNWME
+         GeSanC7VPZd3bmcs9VT9eJPAvAQcuZUYkGyVarnmkIzJ5bpgwP51MtbJXPvD3m9+qMSz
+         FaeMGmGVb+BMr89kOMWhOy+UfKk1bp4AWFNGSVQno9LznWJ1QY6XHn4XEYAV2pC7JNE3
+         wL5SU2U2iUJD8ZtMgVBTUS5XMcd6d+PtmFP2JDzxO2DepHQwrJhm2NusdPvnMKhk3yoh
+         gUhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=message-id:reply-to:to:from:subject:mime-version:date:sender
+         :dkim-signature:dkim-signature;
+        bh=Y2CwBnQA7lFbaaD1g7DQRbZ4nN0A/4fULAMq9HyHflc=;
+        fh=gmkFVsxao+D2mKCfQPG7WtT4VK/pO+s5X1byKSGhCoo=;
+        b=M2Ul0vxVegwTV3wsBn+WRyLjwzCbw+Q0NMWMzTZSGg0V9YPUcgXlN45rIJeUFOKJGu
+         Ezn6+1qkBXqyVVkx+E9C84/wy9pLuJpQ4jDWrEDJzDNez4mktTcvEPWWGTI24eV+uZsV
+         2BoxH7raoxyRaWPV/LX3Y1LXTxKu5U0ppX6q6PvWdIeN/sE+v8BKUEklwEeBr/H5iZD3
+         e2CgymyjgPsCfl3WMI8jEZ3hZzbir8QSS2fO9XeKCfthleLbtvQyv9Ebnto0tXUQw2Hw
+         qhgBgFVpif9fbbqZ0C2gAf97gzNTiLw0Nmth764ro3RSq0wf/uVh7Gqg+mEQvhh3JC0k
+         AXNA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@academy.networkchuck.com header.s=mailo header.b=PgovSNjD;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=j+uLcPdJ;
+       spf=pass (google.com: domain of bounce+25d19a.212edc-patrickbatman458=gmail.com@academy.networkchuck.com designates 143.55.228.149 as permitted sender) smtp.mailfrom="bounce+25d19a.212edc-patrickbatman458=gmail.com@academy.networkchuck.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=academy.networkchuck.com
+Return-Path: <bounce+25d19a.212edc-patrickbatman458=gmail.com@academy.networkchuck.com>
+Received: from v5149.v560d213d.use4.send.mailgun.net (v5149.v560d213d.use4.send.mailgun.net. [143.55.228.149])
+        by mx.google.com with UTF8SMTPS id 6a1803df08f44-907baa968c6si86210496d6.363.2026.07.24.01.01.25
+        for <patrickbatman458@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 24 Jul 2026 01:01:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+25d19a.212edc-patrickbatman458=gmail.com@academy.networkchuck.com designates 143.55.228.149 as permitted sender) client-ip=143.55.228.149;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@academy.networkchuck.com header.s=mailo header.b=PgovSNjD;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=j+uLcPdJ;
+       spf=pass (google.com: domain of bounce+25d19a.212edc-patrickbatman458=gmail.com@academy.networkchuck.com designates 143.55.228.149 as permitted sender) smtp.mailfrom="bounce+25d19a.212edc-patrickbatman458=gmail.com@academy.networkchuck.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=academy.networkchuck.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=academy.networkchuck.com; q=dns/txt; s=mailo; t=1784880085; x=1784887285;
+ h=Message-Id: Reply-To: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender: X-Feedback-Id;
+ bh=Y2CwBnQA7lFbaaD1g7DQRbZ4nN0A/4fULAMq9HyHflc=;
+ b=PgovSNjDmHWcFqFzTDy4/bkyl8Edx0L8aqTuGe5D/n2xpS7G2kgRW3sHqnY2Ek5c6/fcqslRZS8nxSfhS07wTXgIFv4nJ1K1yn+PDZm294B6Lb72e7CwdqsmfhQ5SR2d9gJAQw8bGUG3yqLtmgcrcxP6YvTk2Pyy1bdGJluiRbM=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg; t=1784880085; x=1784887285;
+ h=Message-Id: Reply-To: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender: X-Feedback-Id;
+ bh=Y2CwBnQA7lFbaaD1g7DQRbZ4nN0A/4fULAMq9HyHflc=;
+ b=j+uLcPdJAf9FzPpmdhlcTqA0MIZk8KrdXRB6pclOnxsSyu4e6stNKFI/Lf5GY8VTodr7ROCpxHqvCXE74cK82zre0LVjcjCjCS7F36bipL+MkAUvl9NRB7pT0I20DRkSxTfdo8sIrqM37NXd7nKkPKkc4I2jtIhJlVhMmAukXps=
+X-Mailgun-Sid: WyJlNzZmZiIsInBhdHJpY2tiYXRtYW40NThAZ21haWwuY29tIiwiMjEyZWRjIl0=
+X-Feedback-Id: no-reply@academy.networkchuck.com:user-message-onUnlockedCourseSections:68c4618fe546fb671ca9a996:mailgun
+Received: by 301d7da368e18e793582e92364e192da7b0d72e7d8573e616af8d1754162b134 with HTTP
+ id 6a631bd5907c12080f37d977; Fri, 24 Jul 2026 08:01:25 GMT
+X-Mailgun-Sending-Ip: 143.55.228.149
+Sender: no-reply@academy.networkchuck.com
+Date: Fri, 24 Jul 2026 08:01:25 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="4b0d74d7ca8a35c77a3f941954461d215f2fde3e90c39faf957dd25f4ef2"
+Subject: New CCNA content: Access control, threats, and AAA
+From: NetworkChuck Academy <no-reply@academy.networkchuck.com>
+To: patrickbatman458@gmail.com
+X-Mailgun-Tag: user-message
+X-Mailgun-Tag: onUnlockedCourseSections
+X-Mailgun-Track: true
+X-Mailgun-Track-Clicks: true
+X-Mailgun-Track-Opens: true
+Reply-To: hello@networkchuck.com
+X-Mailgun-Sending-Ip-Pool: transactional
+X-Mailgun-Variables: {"campaign_id": "22b859a5-f44c-4b3a-a1ca-f39882cbac23", "client_id":
+ "67a3a87b506fc2ad6b2dcf45", "cluster": "us-e2", "log_id":
+ "6a631bd5582dd84239019cd9", "published_at": "1.784880085e+09"}
+Message-Id: <20260724080125.fa865f070dbef8b2@academy.networkchuck.com>
+
+--4b0d74d7ca8a35c77a3f941954461d215f2fde3e90c39faf957dd25f4ef2
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+=20
+   =20
+        Notification
+       =20
+       =20
+       =20
+       =20
+        =20
+   =20
+   =20
+         =20
+Week 13 is here =E2=80=94 ACLs, security fundamentals, and Cisco AAA
+
+ =20
+   =20
+     =20
+       =20
+       =20
+
+       =20
+       =20
+         =20
+           =20
+             =20
+
+                Hey there, Tyler Durden
+
+               =20
+                  Week 13 is ready for you
+               =20
+
+               =20
+                  This week, you'll go deeper into access control with stan=
+dard ACLs, extended ACLs, and hands-on ACL deployment at Castle Rysen. Afte=
+r that, you'll shift into security fundamentals, including vulnerabilities,=
+ exploits, threats, identity attacks, password attacks, and the role of Cis=
+co AAA.
+               =20
+
+               =20
+                  This is a big week because you're not just learning how n=
+etworks connect =E2=80=94 you're learning how to control and protect them.
+               =20
+
+               =20
+                  Jump in, work through the labs, and keep building your CC=
+NA skills one config at a time.
+               =20
+
+               =20
+                 =20
+                    Continue Learning
+                 =20
+               =20
+
+               =20
+                  =E2=80=94 The NetworkChuck Academy Team
+               =20
+
+             =20
+           =20
+         =20
+       =20
+
+       =20
+       =20
+         =20
+           =20
+              Copyright =C2=A9 NetworkChuck Academy, All rights reserved.
+              You're receiving this email because you have an active Academ=
+y subscription.
+           =20
+         =20
+       =20
+     =20
+   =20
+ =20
+
+
+   =20
+
+
+--4b0d74d7ca8a35c77a3f941954461d215f2fde3e90c39faf957dd25f4ef2
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html> <html>
+    <head>
+        <title>Notification</title>
+        <meta charset=3D"UTF-8" />
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sc=
+ale=3D1, maximum-scale=3D1">
+        <base href=3D""/>
+        <link href=3D'https://fonts.googleapis.com/css?family=3DLato:400,70=
+0,300&subset=3Dlatin,latin-ext' rel=3D'stylesheet' type=3D'text/css'>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                font-family: 'Open Sans',Helvetica !important;
+            }
+            .mail-wrapper {
+                background-color: #e1e5ea;
+                padding: 30px;
+                display: block;
+            }
+            .mail {
+                overflow: hidden;
+                width:540px;
+                max-width: 100%;
+                background-color:white;
+                border-top: 30px solid white;
+                border-bottom: 30px solid white;
+                border-radius: 3px;
+                margin:0 auto;
+            }
+            .mail div, .mail p,
+            .mail h1, .mail h2, .mail h3, .mail h4, .mail h5, .mail h6,
+            .mail ol, .mail ul, .mail li {
+                margin: 12px 30px;
+                line-height: 18px;
+            }
+            .mail a {
+                cursor: pointer;
+                color: rgb(0,166,239);
+                text-decoration: none;
+            }
+            .mail a:hover {
+                text-decoration: underline;
+            }
+            .mail-bar {
+                height: 6px;
+                background-color: rgb(20,20,20);
+                position: absolute;
+                width: 100%;
+                top: 46px;
+            }
+            .mail-logo-container {
+                text-align: center;
+            }
+            .mail-logo-wrapper {
+                padding: 0 20px;
+                background-color: white;
+                display: inline-block;
+                position: relative;
+                z-index: 6;
+            }
+            .footer-wrapper{
+                overflow:hidden;
+                font-family:Lato,sans-serif;
+                color:#010101;
+                font-size:11px;
+                margin-top:50px;
+                text-align:center;
+            }
+            .mail-logo-wrapper img {
+                margin-bottom: 30px;
+                max-width: 100%;
+            }
+            .mail-title{
+                text-align: left;
+                font-family:Lato,sans-serif;
+                color:rgb(140,140,140);
+                font-size: 22px;
+                border-top: 3px solid rgb(20,20,20);
+                font-weight:normal;
+                padding-top: 40px;
+                margin:20px 0 0 0;
+            }
+            .mail-title-text{
+                vertical-align:middle;
+            }
+            .mail-text {
+                text-align: left;
+                font-family:Lato,sans-serif;
+                color:rgb(140,140,140);
+                font-size:15px;
+                line-height:23px;
+                margin:15px 0 0 0;
+                text-align:left;
+                list-style-type:none;
+            }
+            #createdLearnWorlds{
+                text-align:center;
+                font-size:11px;
+                padding: 0px 0 30px 0;
+            }
+            .lw-v-middle {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .lw-icon{
+                width: 16px;
+                margin: 0 0 0 3px;
+                position:relative;
+                top:-1px;
+            }
+            .lw-link {
+                cursor:pointer;
+                color:#010101;
+                text-decoration:none;
+            }
+            .lw-link:hover{
+              text-decoration:underline;
+            }
+            img {
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+         =20
+<span style=3D"display:none;font-size:1px;color:#ffffff;max-height:0;overfl=
+ow:hidden;">Week 13 is here =E2=80=94 ACLs, security fundamentals, and Cisc=
+o AAA</span>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"font-family: 'Montserrat', 'Oxygen', Arial, sans-serif; background-col=
+or: #FFFFFF; padding: 20px;">
+  <tbody>
+    <tr>
+      <td align=3D"center">
+        <!-- Logo -->
+        <img src=3D"https://firebasestorage.googleapis.com/v0/b/networkchuc=
+k-academy-prod.firebasestorage.app/o/Academy.png?alt=3Dmedia&amp;token=3D17=
+21256c-829a-4142-88c4-7d4d7343c7fb" alt=3D"NetworkChuck Academy" width=3D"2=
+00" style=3D"display: block; margin-bottom: 30px;">
+
+        <!-- Content card with light gray background -->
+        <table width=3D"600" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"text-align: left; padding: 40px; background-color: #F2F2F2; fon=
+t-family: 'Oxygen', Arial, sans-serif; border-radius: 15px; box-shadow: 0 4=
+px 8px rgba(0, 0, 0, 0.1);">
+          <tbody>
+            <tr>
+              <td style=3D"line-height: 1.6; color: #171723; font-size: 16p=
+x;">
+
+                <p style=3D"text-align: left; font-size: 16px; margin: 0px =
+0px 20px; color: #171723;">Hey there, Tyler Durden</p>
+
+                <p style=3D"text-align: left; font-size: 22px; font-weight:=
+ 700; margin: 0px 0px 20px; color: #BF6233;">
+                  Week 13 is ready for you
+                </p>
+
+                <p style=3D"text-align: left; font-size: 16px; margin: 0px =
+0px 20px; color: #171723;">
+                  This week, you'll go deeper into access control with <str=
+ong>standard ACLs</strong>, <strong>extended ACLs</strong>, and hands-on <s=
+trong>ACL deployment at Castle Rysen</strong>. After that, you'll shift int=
+o security fundamentals, including <strong>vulnerabilities</strong>, <stron=
+g>exploits</strong>, <strong>threats</strong>, <strong>identity attacks</st=
+rong>, <strong>password attacks</strong>, and the role of <strong>Cisco AAA=
+</strong>.
+                </p>
+
+                <p style=3D"text-align: left; font-size: 16px; margin: 0px =
+0px 20px; color: #171723;">
+                  This is a big week because you're not just learning how n=
+etworks connect =E2=80=94 you're learning how to <strong>control and protec=
+t them</strong>.
+                </p>
+
+                <p style=3D"text-align: left; font-size: 16px; margin: 0px =
+0px 20px; color: #171723;">
+                  Jump in, work through the labs, and keep building your CC=
+NA skills one config at a time.
+                </p>
+
+                <div style=3D"text-align: center; margin: 35px 0px;">
+                  <a href=3D"https://lwmail.academy.networkchuck.com/c/eJx0=
+zzuu3SAQgOHVmM5HMDwMBUUS6W4gSn01DION_JTBibL7KKdIl_7XL32E-4V1Pj5rjgDJ24B2LMb=
+QaJLGERXhWHTwHighgRa0VT7639xNqNFPyUpXCDC7BJmKsYK2p3W-49NGBpEjKOBMgqOavPFeSm=
+_FEjFMQTEYY1GiIwhgEzsspJKdtHKiRpDg5ARGeqnAvgp6Z4ucZE5cfILBSCTMvP9-Hdx_nfdKy=
+0Pri85dbHHp_WqD_jLAxwAf_w_P-Y1Bp1XK1nrI2RvQQapAOYjrSVttC-dP7FG9_gl4gK8yiDte=
+2O9Ka8K-42GsH4ycd6zb-97j0_ged24NZxY9nsePYztp5fztfO7G35l6PY8mfkb4EwAA__8Gk3x=
+a" style=3D"display: inline-block; font-family: 'Montserrat', Arial, sans-s=
+erif; font-size: 18px; font-weight: 600; text-decoration: none; color: #171=
+723; background-color: #E5A03B; border-radius: 48px; padding: 15px 40px; bo=
+x-shadow: 0 4px 8px rgba(229, 160, 59, 0.4); transition: all 0.3s ease;">
+                    Continue Learning
+                  </a>
+                </div>
+
+                <p style=3D"text-align: left; font-size: 16px; margin: 30px=
+ 0px 0px; color: #171723;">
+                  <strong>=E2=80=94 The NetworkChuck Academy Team</strong>
+                </p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Footer -->
+        <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D=
+"0" style=3D"text-align: left; margin-top: 25px;">
+          <tbody><tr>
+            <td align=3D"center" style=3D"font-size: 12px; color: #666666; =
+line-height: 1.6;">
+              Copyright =C2=A9 NetworkChuck Academy, All rights reserved.<b=
+r>
+              You're receiving this email because you have an active Academ=
+y subscription.<br><br>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    <img width=3D"1" height=3D"1" alt=3D"" src=3D"https://lwmail.academy.ne=
+tworkchuck.com/o/eJw8zj3u2zAMQPHTRJsDipZsetDSHqHo_AdFUokQfwSW3KK3L5qh-8PDT3=
+h7c33sX1UTYqa4cBxKCDKEPPLAXngo40KEkllwdLJW2_u_fJp5ZJpzhKkIsk4ZVUqITtardTvT1=
+QZDpwk9moqz5GcKRAAU3TMp-QBzEAWdSVE0jFC0KBvgFHBxNSHgBDMGIPAY74VpigVm0GyFMt4C=
+sLDa9ue-W_99nC95XvK6y7G59Xh8jDyNPmuMhKoUcFzAL6KLe195re1p-sU9-ft_mN3wGyzuTG_=
+uZ5VX5r7xHiLdAjw2ruvn3tPV7Bw2a40f5no69p_7esjL9Ptxnc1-mPR67M39Svg3AAD__ykwbl=
+0"></body>
+</html>
+
+--4b0d74d7ca8a35c77a3f941954461d215f2fde3e90c39faf957dd25f4ef2--
