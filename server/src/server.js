@@ -26,6 +26,7 @@ app.use('/api/intelligence', require('./routes/intelligenceRoutes'));
 app.use('/api/campaigns', require('./routes/campaignRoutes'));
 app.use('/api/reports', require('./routes/reportRoutes'));
 app.use('/api/rules', require('./routes/ruleRoutes'));
+app.use('/api/analysis', require('./routes/analysisRoutes'));
 
 // Root Endpoint
 app.get('/', (req, res) => {

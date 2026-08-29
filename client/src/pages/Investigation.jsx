@@ -3,9 +3,10 @@ import { Link, useParams } from 'react-router-dom';
 import api from '../services/api';
 import { MapContainer, CircleMarker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Download, ExternalLink, FileWarning, Link as LinkIcon, MailWarning, MapPin, Save, ShieldCheck } from 'lucide-react';
+import { Bot, Download, ExternalLink, FileWarning, Link as LinkIcon, MailWarning, MapPin, Save, ShieldCheck } from 'lucide-react';
 
 const riskStyles = {
+  SAFE: 'border-emerald-200 bg-emerald-50 text-emerald-700',
   LOW: 'border-emerald-200 bg-emerald-50 text-emerald-700',
   MEDIUM: 'border-amber-200 bg-amber-50 text-amber-700',
   HIGH: 'border-orange-200 bg-orange-50 text-orange-700',
@@ -24,6 +25,9 @@ const Investigation = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [error, setError] = useState('');
+  const [aiAnalysis, setAiAnalysis] = useState(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState('');
   const [verdict, setVerdict] = useState({ status: 'unreviewed', confidence: 'low', note: '' });
   const [savingVerdict, setSavingVerdict] = useState(false);
 
@@ -38,6 +42,20 @@ const Investigation = () => {
           confidence: res.data.email.verdict?.confidence || 'low',
           note: res.data.email.verdict?.note || ''
         });
+
+        if (res.data.analysis?._id) {
+          setAiLoading(true);
+          api.post(`/analysis/${res.data.analysis._id}/ai`)
+            .then((aiRes) => {
+              if (active) setAiAnalysis(aiRes.data);
+            })
+            .catch((requestError) => {
+              if (active) setAiError(requestError.response?.data?.message || 'Unable to load AI intelligence');
+            })
+            .finally(() => {
+              if (active) setAiLoading(false);
+            });
+        }
       })
       .catch((requestError) => {
         if (active) setError(requestError.response?.data?.message || 'Unable to load investigation');
@@ -221,6 +239,8 @@ const Investigation = () => {
           </form>
         </section>
       </div>
+
+      <AiIntelligenceSection aiAnalysis={aiAnalysis} loading={aiLoading} error={aiError} />
 
       <div className="grid gap-6 xl:grid-cols-[1fr_420px]">
         <section className="rounded border border-gray-200 bg-white">
@@ -444,6 +464,82 @@ const TagList = ({ items }) => (
 );
 
 const Empty = ({ text }) => <p className="text-sm text-gray-500">{text}</p>;
+
+const AiIntelligenceSection = ({ aiAnalysis, loading, error }) => {
+  const enabled = aiAnalysis?.aiAvailable === true;
+
+  return (
+    <section className="rounded border border-gray-200 bg-white">
+      <div className="flex items-center gap-2 border-b border-gray-200 px-5 py-4">
+        <Bot size={18} className="text-gray-500" />
+        <h2 className="font-semibold uppercase tracking-normal">AI Intelligence Analysis</h2>
+      </div>
+      <div className="p-5">
+        {loading && <p className="text-sm text-gray-500">Checking AI Intelligence availability...</p>}
+
+        {!loading && error && (
+          <div className="rounded border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
+            {error}
+          </div>
+        )}
+
+        {!loading && !error && !enabled && (
+          <div className="rounded border border-gray-200 bg-gray-50 p-4">
+            <p className="text-sm font-semibold text-gray-800">AI Intelligence is not configured yet.</p>
+            <p className="mt-1 text-sm text-gray-600">
+              Add NVIDIA_API_KEY in the backend environment configuration to enable AI-powered threat interpretation.
+            </p>
+          </div>
+        )}
+
+        {!loading && enabled && (
+          <div className="space-y-5">
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+              <Metric label="AI assessment" value={aiAnalysis.threatAssessment || 'LOW'} icon={ShieldCheck} tone={riskStyles[aiAnalysis.threatAssessment] || riskStyles.LOW} />
+              <Metric label="AI confidence" value={`${aiAnalysis.confidence || 0}%`} icon={Bot} />
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-gray-800">AI Summary</h3>
+              <p className="mt-2 text-sm leading-6 text-gray-700">{aiAnalysis.summary || 'No AI summary returned.'}</p>
+            </div>
+
+            <AiList title="Primary Threats" items={aiAnalysis.primaryThreats} />
+            <AiList title="Suspicious Indicators" items={aiAnalysis.suspiciousIndicators} />
+
+            {aiAnalysis.reasoning && (
+              <div>
+                <h3 className="text-sm font-semibold text-gray-800">AI Reasoning</h3>
+                <p className="mt-2 text-sm leading-6 text-gray-700">{aiAnalysis.reasoning}</p>
+              </div>
+            )}
+
+            <AiList title="Recommended Actions" items={aiAnalysis.recommendedActions} />
+
+            {aiAnalysis.userWarning && (
+              <div className="rounded border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+                {aiAnalysis.userWarning}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+const AiList = ({ title, items = [] }) => {
+  if (!items.length) return null;
+
+  return (
+    <div>
+      <h3 className="text-sm font-semibold text-gray-800">{title}</h3>
+      <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-gray-600">
+        {items.map((item) => <li key={item}>{item}</li>)}
+      </ul>
+    </div>
+  );
+};
 
 const IntelGroup = ({ title, items = [], labelKey }) => {
   if (!items.length) return null;
